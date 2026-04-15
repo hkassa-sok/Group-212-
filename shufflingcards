@@ -1,0 +1,34 @@
+import random
+
+def shuffle_cards():
+    """
+    Makes a deck of cards and randomizes , then returns the information of cards
+    """
+    #list of the suits and ranks of cards in the deck
+    suits = ["spades", "hearts", "diamonds", "clubs"]
+    ranks = ["A","2", "3","4","5","6","7","8","9","10","J","Q","K"]
+
+#a empty list that will hold each card in the deck
+    deck = []
+
+#a loop to create every card in a deck
+    for suit in suits:
+        for rank in ranks:
+            #aces worth one point
+            if rank == "A":
+                points = 1
+                #jack  queen king, worth 10 points
+            elif rank == "J" or rank == "Q" or rank == "K":
+                points = 10
+            else:
+                #the number cards are worth the number of that card
+                points = int(rank)
+#creating the card as a dictionary and appeading it to the deck
+            card = {"rank": rank, "suit": suit, "points": points}
+            deck.append(card)
+
+#shuffles the deck
+    random.shuffle(deck)
+
+#returns the deck
+    return deck
