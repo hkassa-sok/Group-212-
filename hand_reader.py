@@ -22,6 +22,19 @@ def find_sets(hand):
         return sets
               
 
-"""
-    test
+def can_knock(hand):
     """
+    Checks if the player can knock by adding up
+    the deadwood points in their hand.
+    Returns True if deadwood is 10 or less.
+    """
+    total = 0
+
+    for card in hand:
+        points = card["points"]
+        total += points
+
+    if total <= 10:
+        return True
+    else:
+        return False
